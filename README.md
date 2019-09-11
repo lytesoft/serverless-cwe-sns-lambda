@@ -19,6 +19,7 @@ and a `maxRetryCount` as simply as subscribing directly to the sns topic.
 ## Install
 
 Run `npm install` in your Serverless project.
+this is just a test
 
 `$ npm install --save-dev serverless-sns-sqs-lambda`
 
