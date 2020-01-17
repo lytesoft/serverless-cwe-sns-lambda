@@ -1,17 +1,14 @@
 {
-  "name": "@agiledigital/serverless-sns-sqs-lambda",
-  "version": "0.1.8",
-  "description": "serverless plugin to make serverless-sns-sqs-lambda events",
-  "main": "lib/serverless-sns-sqs-lambda.js",
+  "name": "serverless-cwe-sqs-lambda",
+  "version": "0.0.1",
+  "description": "serverless plugin to make serverless-cwe-sns-lambda events",
+  "main": "lib/serverless-cwe-sns-lambda.js",
   "scripts": {
-    "test": "jest --clearCache && jest --runInBand",
-    "plant-thy-self": "sh scripts/plant.sh",
-    "add-plant": "git add plant-uml-files/*",
-    "pre-commit": "npm run test && npm run plant-thy-self && npm run add-plant"
+    "test": "jest --clearCache && jest --runInBand"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/agiledigital/serverless-sns-sqs-lambda.git"
+    "url": "git+https://github.com/tcastelli/serverless-cwe-sns-lambda.git"
   },
   "keywords": [
     "serverless",
@@ -19,24 +16,24 @@
     "sns",
     "sqs",
     "aws",
+    "cwe",
     "lambda"
   ],
-  "author": "agileDigital",
+  "author": "tcastelli",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/agiledigital/serverless-sns-sqs-lambda/issues"
+    "url": "https://github.com/tcastelli/serverless-cwe-sns-lambda/issues"
   },
-  "homepage": "https://github.com/agiledigital/serverless-sns-sqs-lambda#readme",
+  "homepage": "https://github.com/tcastelli/serverless-cwe-sns-lambda#readme",
   "devDependencies": {
-    "husky": "^3.0.5",
     "jest": "^24.9.0",
-    "serverless": "^1.51.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pre-commit",
-      "pre-push": "npm version from-git --allow-same-version"
-    }
+    "babel-eslint": "^10.0.3",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.9.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "lint-staged": "^9.5.0",
+    "prettier": "1.19.1",
+    "source-map-support": "^0.5.16"
   },
   "publishConfig": {
     "access": "public"
