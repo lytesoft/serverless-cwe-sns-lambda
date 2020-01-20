@@ -2,47 +2,47 @@
 
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com) [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) 
 
-This plugin allows to define a cloudwatch event rule as the trigger for a lambda. To handle errors and retries, this event will go through SNS (connected to a DLQ to avoid delivery problems) and will have another DLQ connected to the final lambda function.
+This plugin allows to define a cloudwatch event rule as the trigger for a lambda. To handle errors and retries, this event will go through SNS (connected to a DLQ to avoid delivery problems) and call a lambda which should have the onError param with another DLQ defined (outside the scope of this plugin)
 
 ## Install
 
 Run `npm install` in your Serverless project.
 
-`$ npm install --save-dev @agiledigital/serverless-sns-sqs-lambda`
+`$ npm install --save-dev https://github.com/tcastelli/serverless-cwe-sns-lambda/master/tarball`
 
 Add the plugin to your serverless.yml file
 
 ```yml
 plugins:
-  - "@agiledigital/serverless-sns-sqs-lambda"
+  - "serverless-cwe-sns-lambda"
 ```
 
 ## Setup
 
-WIP
 
 ```yml
 functions:
   processEvent:
     handler: handler.handler
     events:
-      - cwe-sns-sqs:
-          name: TestEvent # Required - choose a name prefix for the event queue
-          topicArn: !Ref Topic # Required - SNS topic to subscribe to
-          batchSize: 2 # Optional - default value is 10
-          maxRetryCount: 2 # Optional - default value is 5
-          filterPolicy: # Optional - filter messages that are handled
-            pets:
-              - dog
-              - cat
+      - cweSns:
+          ruleResourceName: XXXXEvent                           #required
+          topicResourceName: XXXXTopic                          #optional
+          dlqResourceName:  string                              #optional
+          dlqPolicyResourceName : string                        #optional
+          ruleMessage: Input || InputPath || InputTransformer   #optional                         
+          filterPolicy: Object                                  #optional
+          prefix: string                                        #optional
 
 resources:
   Resources:
-    Topic:
-      Type: AWS::SNS::Topic
+    XXXXEvent:
+      Type: AWS::Events::Rule
       Properties:
-        TopicName: TestTopic
+        ScheduleExpression: cron(0/3 * * * ? *)
+        State: ENABLED
+        Targets: []
 
 plugins:
-  - serverless-sns-sqs-lambda
+  - serverless-cwe-sns-lambda
 ```
