@@ -1,6 +1,6 @@
 {
   "name": "serverless-cwe-sqs-lambda",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "serverless plugin to make serverless-cwe-sns-lambda events",
   "main": "lib/serverless-cwe-sns-lambda.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.9.0",
     "eslint-plugin-prettier": "3.1.2",
-    "lint-staged": "^10.0.0",
+    "lint-staged": "^10.0.1",
     "prettier": "1.19.1",
     "source-map-support": "^0.5.16"
   },
