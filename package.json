@@ -1,5 +1,5 @@
 {
-  "name": "@lytesoft/serverless-cwe-sqs-lambda",
+  "name": "@lytesoft/serverless-cwe-sns-lambda",
   "version": "1.0.0",
   "description": "serverless plugin to make serverless-cwe-sns-lambda events",
   "main": "lib/serverless-cwe-sns-lambda.js",
